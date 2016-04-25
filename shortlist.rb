@@ -1,48 +1,46 @@
 class ShortList
-	def initialize(list_title)
-		@title = list_title
-		@items = Array.new
-	end
+  def initialize(list_title)
+    @title = list_title
+    @items = Array.new
+  end
 
-	attr_accessor :title, :items
+  attr_accessor :title, :items
 
-	def add_item(new_item, completed_status = false)
-		item = Item.new(new_item, completed_status)
-		@items.push(item)
-	end
+  def add_item(new_item, completed_status = false)
+    item = Item.new(new_item, completed_status)
+    @items.push(item)
+  end
 
-	def remove_item(index)
-		@items.delete_at(index)
-	end
+  def remove_item(index)
+    @items.delete_at(index)
+  end
 
-	def change_status(index)
-		@items[index].update_completion
-	end
+  def change_status(index)
+    @items[index].update_completion
+  end
 
-	def print_all
-		puts "#{@title}"
-		puts "=" * @title.length
-		@items.each {|item| item.print }
-	end
-
+  def print_all
+    puts "#{@title}"
+    puts "=" * @title.length
+    @items.each {|item| item.print }
+  end
 end
 
 class Item
-	def initialize(item_description, finished = false)
-		@description = item_description
-		@completed_status = finished
-	end
+  def initialize(item_description, finished = false)
+    @description = item_description
+    @completed_status = finished
+  end
   
   attr_accessor :description, :completed_status
 
-	def update_completion
-		@completed_status = !completed_status
-	end
+  def update_completion
+    @completed_status = !completed_status
+  end
 
-	def print
-		puts "#{description}" + " --- Finished Movie: " + "#{completed_status}"
-	end
-
+  def print
+    puts "#{description}" + " --- Finished Movie: " + "#{completed_status}"
+  end
 end
 
 # Example of creating a new list, adding new items, changing the status, 
