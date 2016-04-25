@@ -1,4 +1,4 @@
-# shortlist
+# shortlist - list/task editor
 
 Primitive list/task editor that allows a user to create a list, add items, remove items, and check off the completion of the task.
 
